@@ -12,8 +12,6 @@ challenge2-jwt-verification/
 ├── verify_jwt.py                    ← Part D — working verification script
 ├── jwt_server.py                    ← local test server (fixed RS256 version)
 ├── config.json                      ← input config (target, strategies, key path)
-├── server_public.pem                ← RSA public key for token manipulation
-├── server_private.pem               ← RSA private key (used by jwt_server.py)
 ├── Challenge2_Submission.docx       ← full written report (Parts A–E)
 └── evidence/
     ├── jwt_report_*.json            ← auto-generated tamper-evident reports
