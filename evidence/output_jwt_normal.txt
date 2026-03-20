@@ -1,0 +1,46 @@
+===== REMEDIATION VERIFICATION REPORT =====
+Finding  : jwt_algorithm_confusion
+Target   : https://httpbin.org/get
+Timestamp: 2026-03-20T10:19:55Z
+
+[TC-01] Strategy : alg_none
+        Status   : 200 | Time: 2.18s | Sensitive: YES
+        Result   : FAIL
+        → expected 401, got 200
+        → sensitive data detected in response body
+
+[TC-02] Strategy : hs256_with_pubkey
+        Status   : 200 | Time: 1.54s | Sensitive: YES
+        Result   : FAIL
+        → expected 401, got 200
+        → sensitive data detected in response body
+
+[TC-03] Strategy : tamper_role_to_admin
+        Status   : 200 | Time: 1.54s | Sensitive: YES
+        Result   : FAIL
+        → expected 401, got 200
+        → sensitive data detected in response body
+
+[TC-04] Strategy : expired_token
+        Status   : 200 | Time: 2.97s | Sensitive: YES
+        Result   : FAIL
+        → expected 401, got 200
+        → sensitive data detected in response body
+
+[TC-05] Strategy : kid_injection
+        Status   : 200 | Time: 1.84s | Sensitive: YES
+        Result   : FAIL
+        → expected 401, got 200
+        → sensitive data detected in response body
+
+[TC-06] Strategy : blank_alg
+        Status   : 200 | Time: 1.54s | Sensitive: YES
+        Result   : FAIL
+        → expected 401, got 200
+        → sensitive data detected in response body
+
+============================================
+===== VERDICT: REMEDIATION_FAILED =====
+Failed Tests   : 6 / 6
+Evidence saved : evidence/jwt_report_20260320T101955Z.json
+Report hash    : sha256:ebe002b5750af8abe01f2c127e8fe7097d4b99aedea32618b0ea06e3546a442c

@@ -1,0 +1,52 @@
+===== REMEDIATION VERIFICATION REPORT =====
+Finding  : jwt_algorithm_confusion
+Target   : https://httpbin.org/get
+Timestamp: 2026-03-20T10:20:40Z
+
+[TC-01] Strategy : alg_none
+        Token    : eyJhbGciOiJub25lIn0.eyJzdWIiOiJ1c2VyMTIzIiwicm9sZSI6InVzZXIifQ....
+        Status   : 200 | Time: 1.56s | Sensitive: YES
+        Result   : FAIL
+        → expected 401, got 200
+        → sensitive data detected in response body
+
+[TC-02] Strategy : hs256_with_pubkey
+        Token    : eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyMTIzIiwicm9sZSI6InVzZXIifQ....
+        Status   : 200 | Time: 1.64s | Sensitive: YES
+        Result   : FAIL
+        → expected 401, got 200
+        → sensitive data detected in response body
+
+[TC-03] Strategy : tamper_role_to_admin
+        Token    : eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyMTIzIiwicm9sZSI6ImFkbWluIn0...
+        Status   : 200 | Time: 2.08s | Sensitive: YES
+        Result   : FAIL
+        → expected 401, got 200
+        → sensitive data detected in response body
+
+[TC-04] Strategy : expired_token
+        Token    : eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyMTIzIiwicm9sZSI6InVzZXIiLCJ...
+        Status   : 200 | Time: 1.60s | Sensitive: YES
+        Result   : FAIL
+        → expected 401, got 200
+        → sensitive data detected in response body
+
+[TC-05] Strategy : kid_injection
+        Token    : eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ii4uLy4uL2Rldi9udWxsIn0.eyJzdWIiOiJ1...
+        Status   : 200 | Time: 1.53s | Sensitive: YES
+        Result   : FAIL
+        → expected 401, got 200
+        → sensitive data detected in response body
+
+[TC-06] Strategy : blank_alg
+        Token    : eyJhbGciOiIiLCJ0eXAiOiJKV1QifQ.eyJzdWIiOiJ1c2VyMTIzIiwicm9sZSI6InVzZXIifQ.aW52YW...
+        Status   : 200 | Time: 1.53s | Sensitive: YES
+        Result   : FAIL
+        → expected 401, got 200
+        → sensitive data detected in response body
+
+============================================
+===== VERDICT: REMEDIATION_FAILED =====
+Failed Tests   : 6 / 6
+Evidence saved : evidence/jwt_report_20260320T102040Z.json
+Report hash    : sha256:8e84512370b86973b8fc4c86c0fb900fc8e5e0f39256786c89f67c07a20ebe74

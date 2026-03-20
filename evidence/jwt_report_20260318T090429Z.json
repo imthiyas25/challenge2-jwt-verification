@@ -1,0 +1,80 @@
+{
+  "finding": "jwt_algorithm_confusion",
+  "target": "https://httpbin.org/get",
+  "timestamp": "2026-03-18T09:04:29Z",
+  "verdict": "REMEDIATION_FAILED",
+  "summary": {
+    "total": 6,
+    "passed": 0,
+    "failed": 6
+  },
+  "test_results": [
+    {
+      "test_id": "TC-01",
+      "strategy": "alg_none",
+      "status_code": null,
+      "response_time_s": 0.006,
+      "sensitive_data": false,
+      "anomalies": [
+        "expected 401, got None"
+      ],
+      "result": "FAIL"
+    },
+    {
+      "test_id": "TC-02",
+      "strategy": "hs256_with_pubkey",
+      "status_code": null,
+      "response_time_s": 0.002,
+      "sensitive_data": false,
+      "anomalies": [
+        "expected 401, got None"
+      ],
+      "result": "FAIL"
+    },
+    {
+      "test_id": "TC-03",
+      "strategy": "tamper_role_to_admin",
+      "status_code": null,
+      "response_time_s": 0.001,
+      "sensitive_data": false,
+      "anomalies": [
+        "expected 401, got None"
+      ],
+      "result": "FAIL"
+    },
+    {
+      "test_id": "TC-04",
+      "strategy": "expired_token",
+      "status_code": null,
+      "response_time_s": 0.007,
+      "sensitive_data": false,
+      "anomalies": [
+        "expected 401, got None"
+      ],
+      "result": "FAIL"
+    },
+    {
+      "test_id": "TC-05",
+      "strategy": "kid_injection",
+      "status_code": null,
+      "response_time_s": 0.002,
+      "sensitive_data": false,
+      "anomalies": [
+        "expected 401, got None"
+      ],
+      "result": "FAIL"
+    },
+    {
+      "test_id": "TC-06",
+      "strategy": "blank_alg",
+      "status_code": null,
+      "response_time_s": 0.001,
+      "sensitive_data": false,
+      "anomalies": [
+        "expected 401, got None"
+      ],
+      "result": "FAIL"
+    }
+  ],
+  "report_hash": "sha256:492ada2f3a62db8a0c6925f95883fb2287e0528922864df72db103741e81d591"
+}

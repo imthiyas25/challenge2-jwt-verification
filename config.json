@@ -1,0 +1,8 @@
+{
+  "target": "https://httpbin.org/get",
+  "finding": "jwt_algorithm_confusion",
+  "original_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyMTIzIiwicm9sZSI6InVzZXIifQ.SIGNATURE",
+  "public_key_path": "./server_public.pem",
+  "test_strategies": ["alg_none", "hs256_with_pubkey", "tamper_role_to_admin", "expired_token", "kid_injection", "blank_alg"],
+  "expected_rejection_code": 401
+}

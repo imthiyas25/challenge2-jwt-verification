@@ -1,0 +1,87 @@
+{
+  "finding": "jwt_algorithm_confusion",
+  "target": "https://httpbin.org/get",
+  "timestamp": "2026-03-18T05:21:32Z",
+  "verdict": "REMEDIATION_FAILED",
+  "summary": {
+    "total": 6,
+    "passed": 0,
+    "failed": 6
+  },
+  "test_results": [
+    {
+      "test_id": "TC-01",
+      "strategy": "alg_none",
+      "status_code": 200,
+      "response_time_s": 3.135,
+      "sensitive_data": true,
+      "anomalies": [
+        "expected 401, got 200",
+        "response time 3.14s exceeded 3s",
+        "sensitive data detected in response body"
+      ],
+      "result": "FAIL"
+    },
+    {
+      "test_id": "TC-02",
+      "strategy": "hs256_with_pubkey",
+      "status_code": 200,
+      "response_time_s": 1.943,
+      "sensitive_data": true,
+      "anomalies": [
+        "expected 401, got 200",
+        "sensitive data detected in response body"
+      ],
+      "result": "FAIL"
+    },
+    {
+      "test_id": "TC-03",
+      "strategy": "tamper_role_to_admin",
+      "status_code": 200,
+      "response_time_s": 1.762,
+      "sensitive_data": true,
+      "anomalies": [
+        "expected 401, got 200",
+        "sensitive data detected in response body"
+      ],
+      "result": "FAIL"
+    },
+    {
+      "test_id": "TC-04",
+      "strategy": "expired_token",
+      "status_code": 200,
+      "response_time_s": 1.923,
+      "sensitive_data": true,
+      "anomalies": [
+        "expected 401, got 200",
+        "sensitive data detected in response body"
+      ],
+      "result": "FAIL"
+    },
+    {
+      "test_id": "TC-05",
+      "strategy": "kid_injection",
+      "status_code": 200,
+      "response_time_s": 1.842,
+      "sensitive_data": true,
+      "anomalies": [
+        "expected 401, got 200",
+        "sensitive data detected in response body"
+      ],
+      "result": "FAIL"
+    },
+    {
+      "test_id": "TC-06",
+      "strategy": "blank_alg",
+      "status_code": 200,
+      "response_time_s": 2.359,
+      "sensitive_data": true,
+      "anomalies": [
+        "expected 401, got 200",
+        "sensitive data detected in response body"
+      ],
+      "result": "FAIL"
+    }
+  ],
+  "report_hash": "sha256:ac924a54af28b28165d3f3e79e47d923d929c6d02965fa17ab3cdce2cdefdcf9"
+}

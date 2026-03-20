@@ -1,0 +1,86 @@
+{
+  "finding": "jwt_algorithm_confusion",
+  "target": "https://httpbin.org/get",
+  "timestamp": "2026-03-20T10:20:21Z",
+  "verdict": "REMEDIATION_FAILED",
+  "summary": {
+    "total": 6,
+    "passed": 0,
+    "failed": 6
+  },
+  "test_results": [
+    {
+      "test_id": "TC-01",
+      "strategy": "alg_none",
+      "status_code": 200,
+      "response_time_s": 1.569,
+      "sensitive_data": true,
+      "anomalies": [
+        "expected 401, got 200",
+        "sensitive data detected in response body"
+      ],
+      "result": "FAIL"
+    },
+    {
+      "test_id": "TC-02",
+      "strategy": "hs256_with_pubkey",
+      "status_code": 200,
+      "response_time_s": 1.46,
+      "sensitive_data": true,
+      "anomalies": [
+        "expected 401, got 200",
+        "sensitive data detected in response body"
+      ],
+      "result": "FAIL"
+    },
+    {
+      "test_id": "TC-03",
+      "strategy": "tamper_role_to_admin",
+      "status_code": 200,
+      "response_time_s": 1.892,
+      "sensitive_data": true,
+      "anomalies": [
+        "expected 401, got 200",
+        "sensitive data detected in response body"
+      ],
+      "result": "FAIL"
+    },
+    {
+      "test_id": "TC-04",
+      "strategy": "expired_token",
+      "status_code": 200,
+      "response_time_s": 1.331,
+      "sensitive_data": true,
+      "anomalies": [
+        "expected 401, got 200",
+        "sensitive data detected in response body"
+      ],
+      "result": "FAIL"
+    },
+    {
+      "test_id": "TC-05",
+      "strategy": "kid_injection",
+      "status_code": 200,
+      "response_time_s": 1.537,
+      "sensitive_data": true,
+      "anomalies": [
+        "expected 401, got 200",
+        "sensitive data detected in response body"
+      ],
+      "result": "FAIL"
+    },
+    {
+      "test_id": "TC-06",
+      "strategy": "blank_alg",
+      "status_code": 200,
+      "response_time_s": 1.537,
+      "sensitive_data": true,
+      "anomalies": [
+        "expected 401, got 200",
+        "sensitive data detected in response body"
+      ],
+      "result": "FAIL"
+    }
+  ],
+  "report_hash": "sha256:da6c311edade47b3e229e59e9d811f66551a5db4f40c594fb0c3a3654b358702"
+}
